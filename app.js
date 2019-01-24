@@ -1,3 +1,4 @@
+// create app class
 class App extends React.Component {
   constructor() {
     super()
@@ -6,6 +7,7 @@ class App extends React.Component {
     }
   }
 
+  // elemets stylesheet
   Styles = {
       SmallBtn: {
       color: "white",
@@ -33,30 +35,59 @@ class App extends React.Component {
     }
   }
 
+  // number button component
   numBtn = props => (
-    <td><input className="btn btn-primary" type="button" value={props.num} onClick={() => this.setNum(props.num)} style={this.Styles.SmallBtn} /></td>
+    <td>
+      <input
+        className="btn btn-primary" type="button" value={props.num}
+        onClick={() => this.setNum(props.num)} style={this.Styles.SmallBtn}
+      />
+    </td>
   )
 
+  // operator button component
   operaBtn = props => (
-    <td><input className="btn btn-warning" type="button" value={props.op} onClick={() => this.setOp(props.op)} style={this.Styles.SmallBtn}/></td>
+    <td>
+      <input
+        className="btn btn-warning" type="button" value={props.op}
+        onClick={() => this.setOp(props.op)} style={this.Styles.SmallBtn}
+      />
+    </td>
   )
 
+  // clear button component
   clrBtn = props => (
-    <td colSpan={2} className="col-6" ><input className="btn btn-info" type="button" value={props.op} onClick={() => this.clr()} style={this.Styles, this.Styles.halfBtn} /></td>
+    <td colSpan={2} className="col-6" >
+      <input
+        className="btn btn-info" type="button" value={props.op}
+        onClick={() => this.clr()} style={this.Styles, this.Styles.halfBtn}
+      />
+    </td>
   )
 
+  // equals button component
   equBtn = props => (
-    <td colSpan={2} className="col-6" ><input className="btn btn-success" type="button" value={props.equ} onClick={() => this.calculate()} style={this.Styles.halfBtn} /></td>
+    <td colSpan={2} className="col-6" >
+      <input
+        className="btn btn-success" type="button" value={props.equ}
+        onClick={() => this.calculate()} style={this.Styles.halfBtn}
+      />
+    </td>
   )
 
+  // display input component
   display = props => (
     <tr>
       <td colSpan="4" >
-        <input className="text-large form-control" disabled type="text" value={props.txt} style={this.Styles.display}/>
+        <input
+          className="text-large form-control" disabled type="text" value={props.txt}
+          style={this.Styles.display}
+        />
       </td>
     </tr>
   )
 
+  // calculator component
   Calculator = props =>  (
     <div>
     <this.display txt={props.txt} />
@@ -90,24 +121,29 @@ class App extends React.Component {
     </tr>
     </div>
   )
+
+  // pass clicked number to display
   setNum(num){
     this.setState({
       txt: this.state.txt+num,
     })
   }
 
+  // set the operation state
   setOp(op){
     this.setState({
       txt2: this.state.txt, txt: '', operation: op,
     })
   }
 
+  // clear calculator states
   clr(){
     this.setState({
       txt2: '', txt: '', operation: '',
     })
   }
 
+  // calculate based on the calculator state
   calculate = () => {
     let result = ''
     const operation = this.state.operation
@@ -136,6 +172,7 @@ class App extends React.Component {
     })
   }
 
+  // calculator rendering
   render(){
     return (
       <div className="">
@@ -146,6 +183,8 @@ class App extends React.Component {
     )
   }
 }
+
+// display the app in the html element
 ReactDOM.render(
   <App />,
   document.getElementById('root')
