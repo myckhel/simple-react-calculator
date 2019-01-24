@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## Simple Reactjs Calculator
 
-You can use the [editor on GitHub](https://github.com/myckhel/simple-react-calculator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A web based calculator built with reactjs. it performs arithmetic operations on numbers. It can do only addition, subtraction, multiplication, division, and modulous.
 
 ### Markdown
 
