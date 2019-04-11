@@ -1,5 +1,8 @@
+import React, { Component } from 'react';
+import './assets/bootstrap.min.css';
+
 // create app class
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -60,7 +63,7 @@ class App extends React.Component {
     <td colSpan={2} className="col-6" >
       <input
         className="btn btn-info" type="button" value={props.op}
-        onClick={() => this.clr()} style={this.Styles, this.Styles.halfBtn}
+        onClick={() => this.clr()} style={{...this.Styles, ...this.Styles.halfBtn}}
       />
     </td>
   )
@@ -175,17 +178,21 @@ class App extends React.Component {
   // calculator rendering
   render(){
     return (
-      <div className="">
-        <table>
-          <this.Calculator  txt={this.state.txt}/>
-        </table>
+      <div class="well container">
+        <h3 class="text-center">
+    			 A web based calculator built with reactjs. it performs arithmetic operations on numbers.
+    			  It can do only addition, subtraction, multiplication, division, and modulous.
+    	 	</h3>
+        <div class="bg-info centered">
+          <div className="">
+            <table>
+              <this.Calculator  txt={this.state.txt}/>
+            </table>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-// display the app in the html element
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+export default App;
